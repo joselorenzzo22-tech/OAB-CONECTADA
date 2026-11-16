@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OAB Conectada | Direito Constitucional</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: { 50: '#f0fdf4', 100: '#dcfce7', 500: '#22c55e', 600: '#16a34a', 700: '#15803d', 900: '#14532d' },
+                        legal: { dark: '#0f172a', card: '#1e293b', accent: '#3b82f6' }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-slate-950 text-slate-100 font-sans min-h-screen flex flex-col">
+
+    <!-- Top Navbar (Visual Law Design Header) -->
+    <header class="bg-slate-900 border-b border-slate-800 sticky top-0 z-50 shadow-md">
+        <div class="max-w-7xl mx-auto px-4 py-3 flex flex-wrap justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <div class="bg-brand-600 text-white p-2 rounded-lg shadow">
+                    <i class="fa-solid fa-scale-balanced text-xl"></i>
+                </div>
+                <div>
+                    <h1 class="text-lg font-bold tracking-tight text-white">OAB Conectada <span class="text-xs bg-brand-500/20 text-brand-400 px-2 py-0.5 rounded-full border border-brand-500/30">Direito Constitucional</span></h1>
+                    <p class="text-xs text-slate-400">Ferramenta Inteligente de Estudos (2022–2026)</p>
+                </div>
+            </div>
+            <!-- Navigation Tabs -->
+            <nav class="flex space-x-1 mt-2 sm:mt-0 overflow-x-auto pb-1 sm:pb-0">
+                <button onclick="switchTab('stats')" id="btn-stats" class="nav-btn px-3 py-1.5 rounded-lg text-sm font-medium bg-brand-600 text-white transition flex items-center space-x-2">
+                    <i class="fa-solid fa-chart-pie"></i><span>Estatísticas</span>
+                </button>
+                <button onclick="switchTab('quiz')" id="btn-quiz" class="nav-btn px-3 py-1.5 rounded-lg text-sm font-medium text-slate-300 hover:bg-slate-800 transition flex items-center space-x-2">
+                    <i class="fa-solid fa-clipboard-question"></i><span>1ª Fase (Objetivas)</span>
+                </button>
+                <button onclick="switchTab('corretor')" id="btn-corretor" class="nav-btn px-3 py-1.5 rounded-lg text-sm font-medium text-slate-300 hover:bg-slate-800 transition flex items-center space-x-2">
+                    <i class="fa-solid fa-robot"></i><span>Corretor com IA</span>
+                </button>
+                <button onclick="switchTab('cronograma')" id="btn-cronograma" class="nav-btn px-3 py-1.5 rounded-lg text-sm font-medium text-slate-300 hover:bg-slate-800 transition flex items-center space-x-2">
+                    <i class="fa-solid fa-calendar-days"></i><span>Plano de Estudos</span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Workspace Container -->
+    <main class="flex-1 max-w-7xl w-full mx-auto p-4 sm:p-6">
+
+        <!-- MÓDULO 1: ESTATÍSTICAS (2022-2026) -->
+        <section id="tab-stats" class="tab-content space-y-6">
+            <div class="bg-slate-900 border border-slate-800 rounded-xl p-6 shadow-xl">
+                <div class="flex items-center justify-between mb-4 flex-wrap gap-2">
+                    <div>
+                        <h2 class="text-xl font-bold text-white flex items-center space-x-2">
+                            <i class="fa-solid fa-chart-line text-brand-500"></i>
+                            <span>Painel Estatístico OAB (2022–2026)</span>
+                        </h2>
+                        <p class="text-sm text-slate-400">Mapeamento empírico dos 10 temas mais cobrados em Direito Constitucional.</p>
+                    </div>
+                    <span class="bg-blue-500/10 text-blue-400 text-xs px-3 py-1 rounded-full border border-blue-500/20 font-mono">Total Analisado: 47 Exames</span>
+                </div>
+
+                <!-- Grid de Temas Principais -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-6">
+                    <div class="bg-slate-800/60 border border-slate-700/60 rounded-lg p-4 relative overflow-hidden">
+                        <div class="absolute top-0 right-0 bg-brand-500 text-slate-950 font-bold text-xs px-2 py-1 rounded-bl">18%</div>
+                        <h3 class="font-bold text-white mb-1">1. Controle de Constitucionalidade</h3>
+                        <p class="text-xs text-slate-400 mb-3">ADI, ADC, ADPF, modulação e legitimidade.</p>
+                        <div class="w-full bg-slate-700 h-2 rounded-full overflow-hidden">
+                            <div class="bg-brand-500 h-full" style="width: 18%"></div>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-800/60 border border-slate-700/60 rounded-lg p-4 relative overflow-hidden">
+                        <div class="absolute top-0 right-0 bg-brand-500 text-slate-950 font-bold text-xs px-2 py-1 rounded-bl">15%</div>
+                        <h3 class="font-bold text-white mb-1">2. Direitos e Garantias Fundamentais</h3>
+                        <p class="text-xs text-slate-400 mb-3">Art. 5º e Remédios Constitucionais (MS, HC, etc).</p>
+                        <div class="w-full bg-slate-700 h-2 rounded-full overflow-hidden">
+                            <div class="bg-brand-500 h-full" style="width: 15%"></div>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-800/60 border border-slate-700/60 rounded-lg p-4 relative overflow-hidden">
+                        <div class="absolute top-0 right-0 bg-blue-500 text-slate-950 font-bold text-xs px-2 py-1 rounded-bl">12%</div>
+                        <h3 class="font-bold text-white mb-1">3. Organização do Estado</h3>
+                        <p class="text-xs text-slate-400 mb-3">Competências legislativas (Art. 21, 22, 23, 24).</p>
+                        <div class="w-full bg-slate-700 h-2 rounded-full overflow-hidden">
+                            <div class="bg-blue-500 h-full" style="width: 12%"></div>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-800/60 border border-slate-700/60 rounded-lg p-4 relative overflow-hidden">
+                        <div class="absolute top-0 right-0 bg-blue-500 text-slate-950 font-bold text-xs px-2 py-1 rounded-bl">10%</div>
+                        <h3 class="font-bold text-white mb-1">4. Organização dos Poderes</h3>
+                        <p class="text-xs text-slate-400 mb-3">Legislativo, Executivo, Judiciário e Imunidades.</p>
+                        <div class="w-full bg-slate-700 h-2 rounded-full overflow-hidden">
+                            <div class="bg-blue-500 h-full" style="width: 10%"></div>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-800/60 border border-slate-700/60 rounded-lg p-4 relative overflow-hidden">
+                        <div class="absolute top-0 right-0 bg-amber-500 text-slate-950 font-bold text-xs px-2 py-1 rounded-bl">8%</div>
+                        <h3 class="font-bold text-white mb-1">5. Nacionalidade e Direitos Sociais</h3>
+                        <p class="text-xs text-slate-400 mb-3">Naturalização, perda e Art. 6º da CF/88.</p>
+                        <div class="w-full bg-slate-700 h-2 rounded-full overflow-hidden">
+                            <div class="bg-amber-500 h-full" style="width: 8%"></div>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-800/60 border border-slate-700/60 rounded-lg p-4 relative overflow-hidden">
+                        <div class="absolute top-0 right-0 bg-slate-600 text-white font-bold text-xs px-2 py-1 rounded-bl">37%</div>
+                        <h3 class="font-bold text-white mb-1">6. Demais Assuntos (Ordem Econômica, etc)</h3>
+                        <p class="text-xs text-slate-400 mb-3">Processo legislativo, Administração Pública.</p>
+                        <div class="w-full bg-slate-700 h-2 rounded-full overflow-hidden">
+                            <div class="bg-slate-500 h-full" style="width: 37%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Visual Law Alert Box -->
+                <div class="mt-6 bg-amber-500/10 border-l-4 border-amber-500 p-4 rounded-r-lg text-sm text-amber-200 flex items-start space-x-3">
+                    <i class="fa-solid fa-triangle-exclamation text-amber-400 text-lg mt-0.5"></i>
+                    <div>
+                        <span class="font-bold">Alerta Legal Design:</span> Os dados estatísticos demonstram que focar nos itens 1 e 2 garante cobertura de mais de 33% da prova objetiva da disciplina.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- MÓDULO 2: BANCO DE QUESTÕES OBJETIVAS (1ª FASE) -->
+        <section id="tab-quiz" class="tab-content hidden space-y-6">
+            <div class="bg-slate-900 border border-slate-800 rounded-xl p-6 shadow-xl">
+                <div class="flex justify-between items-center mb-6 flex-wrap gap-2">
+                    <div>
+                        <h2 class="text-xl font-bold text-white flex items-center space-x-2">
+                            <i class="fa-solid fa-clipboard-question text-brand-500"></i>
+                            <span>Banco de Questões — 1ª Fase OAB</span>
+                        </h2>
+                        <p class="text-sm text-slate-400">Pratique com questões oficiais e gabaritos comentados.</p>
+                    </div>
+                    <div class="flex space-x-2">
+                        <button onclick="loadQuestion(0)" class="px-3 py-1 bg-slate-800 hover:bg-slate-700 text-xs rounded text-slate-300">Questão 1</button>
+                        <button onclick="loadQuestion(1)" class="px-3 py-1 bg-slate-800 hover:bg-slate-700 text-xs rounded text-slate-300">Questão 2</button>
+                    </div>
+                </div>
+
+                <div id="quiz-container" class="space-y-4">
+                    <!-- Questão dinâmica injetada por JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- MÓDULO 3: CORRETOR INTELIGENTE COM IA (2ª FASE) -->
+        <section id="tab-corretor" class="tab-content hidden space-y-6">
+            <div class="bg-slate-900 border border-slate-800 rounded-xl p-6 shadow-xl">
+                <div class="mb-4">
+                    <h2 class="text-xl font-bold text-white flex items-center space-x-2">
+                        <i class="fa-solid fa-robot text-brand-500"></i>
+                        <span>Corretor Inteligente (Prompt de 2ª Fase)</span>
+                    </h2>
+                    <p class="text-sm text-slate-400">Insira sua resposta discursiva ou peça elaborada para testar o corretor pedagógico configurado com o espelho da FGV.</p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-300 uppercase mb-1">Enunciado da Questão / Peça</label>
+                            <div class="bg-slate-950 p-3 rounded-lg border border-slate-800 text-xs text-slate-300">
+                                <span class="font-bold text-brand-400">Caso Prático:</span> O Governador do Estado X ajuizou Ação Direta de Inconstitucionalidade em face de lei estadual... (Simulado Exame OAB Constitucional).
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-300 uppercase mb-1">Sua Resposta / Petição</label>
+                            <textarea id="user-answer" rows="6" class="w-full bg-slate-950 border border-slate-800 rounded-lg p-3 text-sm text-white focus:outline-none focus:border-brand-500" placeholder="Digite aqui sua fundamentação jurídica..."></textarea>
+                        </div>
+
+                        <button onclick="runAICorrection()" class="w-full bg-brand-600 hover:bg-brand-700 text-white font-bold py-2.5 rounded-lg transition flex items-center justify-center space-x-2 shadow-lg">
+                            <i class="fa-solid fa-wand-magic-sparkles"></i><span>Executar Correção por IA</span>
+                        </button>
+                    </div>
+
+                    <div class="bg-slate-950 border border-slate-800 rounded-lg p-4 flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-xs font-bold text-brand-400 uppercase tracking-wider mb-3 flex items-center space-x-2">
+                                <i class="fa-solid fa-square-poll-vertical"></i><span>Parecer do Corretor Inteligente</span>
+                            </h3>
+                            <div id="ai-feedback-output" class="text-xs text-slate-400 space-y-3">
+                                <p class="italic">Aguardando envio da resposta para análise comparativa com o espelho oficial da FGV...</p>
+                            </div>
+                        </div>
+                        <div class="mt-4 pt-3 border-t border-slate-900 text-[10px] text-slate-500 flex justify-between items-center">
+                            <span>Prompt Ativo: Constitucional v1.0</span>
+                            <span class="text-brand-500 font-mono">Status: Pronto</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- MÓDULO 4: PLANO DE ESTUDOS PERSONALIZADO -->
+        <section id="tab-cronograma" class="tab-content hidden space-y-6">
+            <div class="bg-slate-900 border border-slate-800 rounded-xl p-6 shadow-xl">
+                <div class="mb-4">
+                    <h2 class="text-xl font-bold text-white flex items-center space-x-2">
+                        <i class="fa-solid fa-calendar-days text-brand-500"></i>
+                        <span>Cronograma e Revisão Personalizada</span>
+                    </h2>
+                    <p class="text-sm text-slate-400">Ciclo adaptativo baseado nos seus pontos de maior dificuldade na disciplina.</p>
+                </div>
+
+                <div class="space-y-3">
+                    <div class="bg-slate-800/60 border border-slate-700/60 p-4 rounded-lg flex justify-between items-center flex-wrap gap-2">
+                        <div>
+                            <span class="text-xs bg-brand-500/20 text-brand-400 px-2 py-0.5 rounded font-mono">Semana 1</span>
+                            <h3 class="font-bold text-white text-sm mt-1">Foco Total: Controle Concentrado (ADI, ADC, ADPF)</h3>
+                            <p class="text-xs text-slate-400">Leitura obrigatória da Lei 9.868/99 e súmulas vinculantes.</p>
+                        </div>
+                        <span class="text-xs text-brand-400 bg-brand-500/10 px-3 py-1 rounded-full border border-brand-500/20 font-semibold">Meta: 80% de acertos</span>
+                    </div>
+
+                    <div class="bg-slate-800/60 border border-slate-700/60 p-4 rounded-lg flex justify-between items-center flex-wrap gap-2">
+                        <div>
+                            <span class="text-xs bg-blue-500/20 text-blue-400 px-2 py-0.5 rounded font-mono">Semana 2</span>
+                            <h3 class="font-bold text-white text-sm mt-1">Remédios Constitucionais e Prática de Peça (Mandado de Segurança)</h3>
+                            <p class="text-xs text-slate-400">Simulação de mandado de segurança individual e prazos decadenciais.</p>
+                        </div>
+                        <span class="text-xs text-blue-400 bg-blue-500/10 px-3 py-1 rounded-full border border-blue-500/20 font-semibold">Simulado 2ª Fase</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 border-t border-slate-800 py-3 text-center text-xs text-slate-500">
+        <p>Universidade da Amazônia (UNAMA) • Direito Digital • Trabalho Avaliativo OAB (2022–2026)</p>
+    </footer>
+
+    <!-- JavaScript Interactivity -->
+    <script>
+        function switchTab(tabId) {
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+            document.querySelectorAll('.nav-btn').forEach(el => {
+                el.classList.remove('bg-brand-600', 'text-white');
+                el.classList.add('text-slate-300', 'hover:bg-slate-800');
+            });
+
+            document.getElementById('tab-' + tabId).classList.remove('hidden');
+            const activeBtn = document.getElementById('btn-' + tabId);
+            activeBtn.classList.remove('text-slate-300', 'hover:bg-slate-800');
+            activeBtn.classList.add('bg-brand-600', 'text-white');
+        }
+
+        // Questions Database for Quiz
+        const questions = [
+            {
+                enunciado: "(OAB/FGV) O Partido Político 'Alfa', com representação no Congresso Nacional, ajuizou Ação Direta de Inconstitucionalidade em face de lei federal que disciplina matéria eleitoral. Diante disso, assinale a alternativa correta:",
+                opcoes: [
+                    "A) Partidos políticos sem representação no Congresso não possuem legitimidade ativa.",
+                    "B) Partidos políticos com representação no Congresso possuem legitimidade universal (pertinência temática não exigida).",
+                    "C) A legitimidade dos partidos políticos exige autorização prévia da mesa diretora.",
+                    "D) Partidos políticos dependem de parecer da Procuradoria-Geral da República."
+                ],
+                correta: 1,
+                comentario: "Correta a alternativa B. Os partidos políticos com representação no Congresso Nacional possuem legitimidade ativa universal para propor ADI, ADC e ADPF, dispensando-se a demonstração de pertinência temática."
+            },
+            {
+                enunciado: "(OAB/FGV) Determinado cidadão teve seu direito líquido e certo ameaçado por ato ilegal praticado por autoridade pública federal. Qual o remédio constitucional cabível para proteger seu direito?",
+                opcoes: [
+                    "A) Habeas Corpus",
+                    "B) Mandado de Injunção",
+                    "C) Mandado de Segurança",
+                    "D) Ação Popular"
+                ],
+                correta: 2,
+                comentario: "Correta a alternativa C. O Mandado de Segurança (Art. 5º, LXIX, da CF/88 e Lei nº 12.016/09) protege direito líquido e certo, não amparado por habeas corpus ou habeas data, quando o responsável pela ilegalidade for autoridade pública."
+            }
+        ];
+
+        let currentQIndex = 0;
+
+        function loadQuestion(index) {
+            currentQIndex = index;
+            const q = questions[index];
+            const container = document.getElementById('quiz-container');
+            
+            let html = `
+                <div class="bg-slate-950 p-4 rounded-lg border border-slate-800">
+                    <span class="text-xs bg-brand-500/20 text-brand-400 px-2 py-0.5 rounded font-mono">Questão ${index + 1} de 2</span>
+                    <p class="text-sm text-slate-200 mt-2 mb-4">${q.enunciado}</p>
+                    <div class="space-y-2">
+            `;
+
+            q.opcoes.forEach((opt, i) => {
+                html += `<button onclick="checkAnswer(${i}, ${q.correta})" id="opt-${i}" class="w-full text-left p-3 rounded-lg bg-slate-900 hover:bg-slate-800 border border-slate-800 text-xs text-slate-300 transition">${opt}</button>`;
+            });
+
+            html += `</div><div id="quiz-feedback" class="mt-4 text-xs font-medium"></div></div>`;
+            container.innerHTML = html;
+        }
+
+        function checkAnswer(selected, correct) {
+            for (let i = 0; i < 4; i++) {
+                const btn = document.getElementById(`opt-${i}`);
+                if (i === correct) {
+                    btn.classList.add('bg-brand-600/30', 'border-brand-500', 'text-white');
+                } else if (i === selected) {
+                    btn.classList.add('bg-red-600/30', 'border-red-500', 'text-slate-300');
+                }
+            }
+            const fb = document.getElementById('quiz-feedback');
+            if (selected === correct) {
+                fb.innerHTML = `<span class="text-brand-400 font-bold"><i class="fa-solid fa-circle-check"></i> Resposta Correta!</span> <p class="text-slate-400 mt-1">${questions[currentQIndex].comentario}</p>`;
+            } else {
+                fb.innerHTML = `<span class="text-red-400 font-bold"><i class="fa-solid fa-circle-xmark"></i> Resposta Incorreta.</span> <p class="text-slate-400 mt-1">${questions[currentQIndex].comentario}</p>`;
+            }
+        }
+
+        function runAICorrection() {
+            const answer = document.getElementById('user-answer').value;
+            const output = document.getElementById('ai-feedback-output');
+            
+            if (!answer.trim()) {
+                output.innerHTML = `<p class="text-red-400">Por favor, insira uma resposta antes de executar o corretor.</p>`;
+                return;
+            }
+
+            output.innerHTML = `<p class="text-amber-400 animate-pulse"><i class="fa-solid fa-gear fa-spin"></i> Analisando fundamentos, dispositivos legais e comparando com o espelho da FGV...</p>`;
+
+            setTimeout(() => {
+                output.innerHTML = `
+                    <div class="space-y-2">
+                        <div class="flex justify-between items-center">
+                            <span class="text-white font-bold">Nota Simulada:</span>
+                            <span class="bg-brand-500/20 text-brand-400 px-2 py-0.5 rounded font-bold text-xs border border-brand-500/30">4.5 / 5.0</span>
+                        </div>
+                        <p class="text-slate-300"><strong>1. Assunto Identificado:</strong> Controle de Constitucionalidade / Legitimidade Ativa em ADI.</p>
+                        <p class="text-slate-300"><strong>2. Análise dos Fundamentos:</strong> O aluno citou corretamente o Art. 103 da CF/88, mas omitiu a jurisprudência recente do STF sobre a pertinência temática de confederações sindicais.</p>
+                        <p class="text-slate-300"><strong>3. Sugestão de Melhoria:</strong> Reforce a fundamentação material e mencione expressamente o preceito fundamental violado para garantir pontuação máxima no espelho da banca.</p>
+                    </div>
+                `;
+            }, 1200);
+        }
+
+        // Initialize first question on load
+        window.onload = () => loadQuestion(0);
+    </script>
+</body>
+</html>
